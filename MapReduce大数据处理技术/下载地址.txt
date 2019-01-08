@@ -3,7 +3,6 @@ hive     http://hive.apache.org/downloads.html
 hbase  http://hbase.apache.org/
 mahout  http://mahout.apache.org/
 
-Èí¼şÏÂÔØ²Î¿¼
 http://jingyan.baidu.com/article/d621e8da0a08192865913fac.html
 
 http://mirror.bit.edu.cn/apache/hadoop/common/
