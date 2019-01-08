@@ -1,0 +1,12 @@
+1.在开机启动时按shift键选择进入高级模式
+2.在高级模式中选择进入recovery模式
+3.在出现的shell中输入 mount -o remount,rw/
+4.输入password +用户名称
+5.输入新的密码
+
+
+
+http://vdisk.weibo.com/s/u84c9Juhewz7v?from=page_100505_profile&wvr=6
+
+
+http://vdisk.weibo.com/wap/s/AaRwlcPQJy9PW

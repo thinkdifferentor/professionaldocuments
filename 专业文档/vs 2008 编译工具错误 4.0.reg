@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\4.0]
+"DefaultToolsVersion"="2.0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\2.0]
+"MSBuildToolsPath"="C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0]
+"MSBuildToolsPath"="C:\\WINDOWS\\Microsoft.NET\\Framework\\v3.5\\" 

@@ -1,0 +1,155 @@
+{\rtf1\ansi\ansicpg936\deff0\deflang1033\deflangfe2052{\fonttbl{\f0\fmodern\fprq6\fcharset134 \'cb\'ce\'cc\'e5;}}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\lang2052\f0\fs20\par
+ \tab C\'d3\'ef\'d1\'d4\'d6\'d0\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'d3\'c3\'b7\'a8\tab\'b3\'f6\'b4\'a6\'a3\'bayourblog\par
+[ 2005-07-21 10:16:32 ]\tab\'d7\'f7\'d5\'df\'a3\'bayashiro\tab\'d4\'f0\'c8\'ce\'b1\'e0\'bc\'ad\'a3\'bamoningfeng\par
+\'a1\'a1\'a1\'a1\'ce\'d2\'c3\'c7\'d4\'daC\'d3\'ef\'d1\'d4\'b1\'e0\'b3\'cc\'d6\'d0\'bb\'e1\'d3\'f6\'b5\'bd\'d2\'bb\'d0\'a9\'b2\'ce\'ca\'fd\'b8\'f6\'ca\'fd\'bf\'c9\'b1\'e4\'b5\'c4\'ba\'af\'ca\'fd,\'c0\'fd\'c8\'e7printf()\'d5\'e2\'b8\'f6\'ba\'af\'ca\'fd,\'cb\'fc\'b5\'c4\'b6\'a8\'d2\'e5\'ca\'c7\'d5\'e2\'d1\'f9\'b5\'c4: \par
+\'a1\'a1\'a1\'a1int printf( const char* format, ...);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'cb\'fc\'b3\'fd\'c1\'cb\'d3\'d0\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fdformat\'b9\'cc\'b6\'a8\'d2\'d4\'cd\'e2,\'ba\'f3\'c3\'e6\'b8\'fa\'b5\'c4\'b2\'ce\'ca\'fd\'b5\'c4\'b8\'f6\'ca\'fd\'ba\'cd\'c0\'e0\'d0\'cd\'ca\'c7\'bf\'c9\'b1\'e4\'b5\'c4,\'c0\'fd\'c8\'e7\'ce\'d2\'c3\'c7\'bf\'c9\'d2\'d4\'d3\'d0\'d2\'d4\'cf\'c2\'b2\'bb\'cd\'ac\'b5\'c4\'b5\'f7\'d3\'c3\'b7\'bd\'b7\'a8: \par
+\'a1\'a1\'a1\'a1printf("%d",i); \par
+\'a1\'a1\'a1\'a1printf("%s",s); \par
+\'a1\'a1\'a1\'a1printf("the number is %d ,string is:%s", i, s);\par
+\par
+\par
+\'a1\'a1 \'a1\'a1\'be\'bf\'be\'b9\'c8\'e7\'ba\'ce\'d0\'b4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4C\'ba\'af\'ca\'fd\'d2\'d4\'bc\'b0\'d5\'e2\'d0\'a9\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'af\'ca\'fd\'b1\'e0\'d2\'eb\'c6\'f7\'ca\'c7\'c8\'e7\'ba\'ce\'ca\'b5\'cf\'d6\'b5\'c4\'c4\'d8?\'b1\'be\'ce\'c4\'be\'cd\'d5\'e2\'b8\'f6\'ce\'ca\'cc\'e2\'bd\'f8\'d0\'d0\'d2\'bb\'d0\'a9\'cc\'bd\'cc\'d6,\'cf\'a3\'cd\'fb\'c4\'dc\'b6\'d4\'b4\'f3\'bc\'d2\'d3\'d0\'d0\'a9\'b0\'ef\'d6\'fa.\'bb\'e1C++\'b5\'c4\'cd\'f8\'d3\'d1\'d6\'aa\'b5\'c0\'d5\'e2\'d0\'a9 \'ce\'ca\'cc\'e2\'d4\'daC++\'c0\'ef\'b2\'bb\'b4\'e6\'d4\'da,\'d2\'f2\'ce\'aaC++\'be\'df\'d3\'d0\'b6\'e0\'cc\'ac\'d0\'d4.\'b5\'abC++\'ca\'c7C\'b5\'c4\'d2\'bb\'b8\'f6\'b3\'ac\'bc\'af,\'d2\'d4\'cf\'c2\'b5\'c4\'bc\'bc\'ca\'f5\'d2\'b2\'bf\'c9\'d2\'d4\'d3\'c3\'d3\'daC++\'b5\'c4\'b3\'cc\'d0\'f2\'d6\'d0.\'cf\'de\'d3\'da\'b1\'be\'c8\'cb\'b5\'c4\'cb\'ae\'c6\'bd,\'ce\'c4\'d6\'d0\'c8\'e7\'b9\'fb\'d3\'d0\'b2\'bb\'b5\'b1\'d6\'ae\'b4\'a6,\'c7\'eb\'b4\'f3 \'bc\'d2\'d6\'b8\'d5\'fd. \par
+\par
+(\'d2\'bb)\'d0\'b4\'d2\'bb\'b8\'f6\'bc\'f2\'b5\'a5\'b5\'c4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4C\'ba\'af\'ca\'fd \par
+\par
+\'a1\'a1\'a1\'a1\'cf\'c2\'c3\'e6\'ce\'d2\'c3\'c7\'c0\'b4\'cc\'bd\'cc\'d6\'c8\'e7\'ba\'ce\'d0\'b4\'d2\'bb\'b8\'f6\'bc\'f2\'b5\'a5\'b5\'c4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4C\'ba\'af\'ca\'fd.\'d0\'b4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4C\'ba\'af\'ca\'fd\'d2\'aa\'d4\'da\'b3\'cc\'d0\'f2\'d6\'d0\'d3\'c3\'b5\'bd\'d2\'d4\'cf\'c2\'d5\'e2\'d0\'a9\'ba\'ea: \par
+\'a1\'a1\'a1\'a1void va_start( va_list arg_ptr, prev_param ); \par
+\par
+\'a1\'a1\'a1\'a1type va_arg( va_list arg_ptr, type ); \par
+\par
+\'a1\'a1\'a1\'a1void va_end( va_list arg_ptr );\par
+\par
+\par
+\'a1\'a1 \'a1\'a1va\'d4\'da\'d5\'e2\'c0\'ef\'ca\'c7variable-argument(\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd)\'b5\'c4\'d2\'e2\'cb\'bc.\'d5\'e2\'d0\'a9\'ba\'ea\'b6\'a8\'d2\'e5\'d4\'dastdarg.h\'d6\'d0,\'cb\'f9\'d2\'d4\'d3\'c3\'b5\'bd\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'b3\'cc\'d0\'f2\'d3\'a6\'b8\'c3\'b0\'fc\'ba\'ac\'d5\'e2\'b8\'f6\'cd\'b7\'ce\'c4\'bc\'fe.\'cf\'c2 \'c3\'e6\'ce\'d2\'c3\'c7\'d0\'b4\'d2\'bb\'b8\'f6\'bc\'f2\'b5\'a5\'b5\'c4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'af\'ca\'fd,\'b8\'c4\'ba\'af\'ca\'fd\'d6\'c1\'c9\'d9\'d3\'d0\'d2\'bb\'b8\'f6\'d5\'fb\'ca\'fd\'b2\'ce\'ca\'fd,\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'d2\'b2\'ca\'c7\'d5\'fb\'ca\'fd,\'ca\'c7\'bf\'c9\'d1\'a1\'b5\'c4.\'ba\'af\'ca\'fd\'d6\'bb\'ca\'c7\'b4\'f2\'d3\'a1\'d5\'e2\'c1\'bd\'b8\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'d6\'b5. \par
+\'a1\'a1\'a1\'a1void simple_va_fun(int i, ...) \par
+\'a1\'a1\'a1\'a1\{ \par
+\'a1\'a1\'a1\'a1va_list arg_ptr; \par
+\'a1\'a1\'a1\'a1int j=0; \par
+\par
+\'a1\'a1\'a1\'a1va_start(arg_ptr, i); \par
+\'a1\'a1\'a1\'a1j=va_arg(arg_ptr, int); \par
+\'a1\'a1\'a1\'a1va_end(arg_ptr); \par
+\'a1\'a1\'a1\'a1printf("%d %d/n", i, j); \par
+\'a1\'a1\'a1\'a1return; \par
+\'a1\'a1\'a1\'a1\}\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'ce\'d2\'c3\'c7\'bf\'c9\'d2\'d4\'d4\'da\'ce\'d2\'c3\'c7\'b5\'c4\'cd\'b7\'ce\'c4\'bc\'fe\'d6\'d0\'d5\'e2\'d1\'f9\'c9\'f9\'c3\'f7\'ce\'d2\'c3\'c7\'b5\'c4\'ba\'af\'ca\'fd: \par
+\'a1\'a1\'a1\'a1extern void simple_va_fun(int i, ...);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'ce\'d2\'c3\'c7\'d4\'da\'b3\'cc\'d0\'f2\'d6\'d0\'bf\'c9\'d2\'d4\'d5\'e2\'d1\'f9\'b5\'f7\'d3\'c3: \par
+\'a1\'a1\'a1\'a1simple_va_fun(100); \par
+\'a1\'a1\'a1\'a1simple_va_fun(100,200);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'b4\'d3\'d5\'e2\'b8\'f6\'ba\'af\'ca\'fd\'b5\'c4\'ca\'b5\'cf\'d6\'bf\'c9\'d2\'d4\'bf\'b4\'b5\'bd,\'ce\'d2\'c3\'c7\'ca\'b9\'d3\'c3\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d3\'a6\'b8\'c3\'d3\'d0\'d2\'d4\'cf\'c2\'b2\'bd\'d6\'e8: \par
+\'a1\'a1\'a1\'a11)\'ca\'d7\'cf\'c8\'d4\'da\'ba\'af\'ca\'fd\'c0\'ef\'b6\'a8\'d2\'e5\'d2\'bb\'b8\'f6va_list\'d0\'cd\'b5\'c4\'b1\'e4\'c1\'bf,\'d5\'e2\'c0\'ef\'ca\'c7arg_ptr,\'d5\'e2\'b8\'f6\'b1\'e4\'c1\'bf\'ca\'c7\'d6\'b8\'cf\'f2\'b2\'ce\'ca\'fd\'b5\'c4\'d6\'b8\'d5\'eb. \par
+\'a1\'a1\'a1\'a12)\'c8\'bb\'ba\'f3\'d3\'c3va_start\'ba\'ea\'b3\'f5\'ca\'bc\'bb\'af\'b1\'e4\'c1\'bfarg_ptr,\'d5\'e2\'b8\'f6\'ba\'ea\'b5\'c4\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'ca\'c7\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'c7\'b0\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd,\'ca\'c7\'d2\'bb\'b8\'f6\'b9\'cc\'b6\'a8\'b5\'c4\'b2\'ce\'ca\'fd. \par
+\'a1\'a1\'a1\'a13)\'c8\'bb\'ba\'f3\'d3\'c3va_arg\'b7\'b5\'bb\'d8\'bf\'c9\'b1\'e4\'b5\'c4\'b2\'ce\'ca\'fd,\'b2\'a2\'b8\'b3\'d6\'b5\'b8\'f8\'d5\'fb\'ca\'fdj. va_arg\'b5\'c4\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'ca\'c7\'c4\'e3\'d2\'aa\'b7\'b5\'bb\'d8\'b5\'c4\'b2\'ce\'ca\'fd\'b5\'c4\'c0\'e0\'d0\'cd,\'d5\'e2\'c0\'ef\'ca\'c7int\'d0\'cd. \par
+\'a1\'a1\'a1\'a14)\'d7\'ee\'ba\'f3\'d3\'c3va_end\'ba\'ea\'bd\'e1\'ca\'f8\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'bb\'f1\'c8\'a1.\'c8\'bb\'ba\'f3\'c4\'e3\'be\'cd\'bf\'c9\'d2\'d4\'d4\'da\'ba\'af\'ca\'fd\'c0\'ef\'ca\'b9\'d3\'c3\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'c1\'cb.\'c8\'e7\'b9\'fb\'ba\'af\'ca\'fd\'d3\'d0\'b6\'e0\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4,\'d2\'c0\'b4\'ce\'b5\'f7\'d3\'c3va_arg\'bb\'f1\'c8\'a1\'b8\'f7\'b8\'f6\'b2\'ce\'ca\'fd.\par
+\par
+\'a1\'a1\'a1\'a1\'c8\'e7\'b9\'fb\'ce\'d2\'c3\'c7\'d3\'c3\'cf\'c2\'c3\'e6\'c8\'fd\'d6\'d6\'b7\'bd\'b7\'a8\'b5\'f7\'d3\'c3\'b5\'c4\'bb\'b0,\'b6\'bc\'ca\'c7\'ba\'cf\'b7\'a8\'b5\'c4,\'b5\'ab\'bd\'e1\'b9\'fb\'c8\'b4\'b2\'bb\'d2\'bb\'d1\'f9: \par
+\'a1\'a1\'a1\'a11)\par
+\par
+\'a1\'a1\'a1\'a1simple_va_fun(100);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'bd\'e1\'b9\'fb\'ca\'c7:100 -123456789(\'bb\'e1\'b1\'e4\'b5\'c4\'d6\'b5) \par
+\'a1\'a1\'a1\'a12)\par
+\'a1\'a1\'a1\'a1simple_va_fun(100,200);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'bd\'e1\'b9\'fb\'ca\'c7:100 200 \par
+\'a1\'a1\'a1\'a13)\par
+\'a1\'a1\'a1\'a1simple_va_fun(100,200,300);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'bd\'e1\'b9\'fb\'ca\'c7:100 200 \par
+\'a1\'a1\'a1\'a1\'ce\'d2\'c3\'c7\'bf\'b4\'b5\'bd\'b5\'da\'d2\'bb\'d6\'d6\'b5\'f7\'d3\'c3\'d3\'d0\'b4\'ed\'ce\'f3,\'b5\'da\'b6\'fe\'d6\'d6\'b5\'f7\'d3\'c3\'d5\'fd\'c8\'b7,\'b5\'da\'c8\'fd\'d6\'d6\'b5\'f7\'d3\'c3\'be\'a1\'b9\'dc\'bd\'e1\'b9\'fb\'d5\'fd\'c8\'b7,\'b5\'ab\'ba\'cd\'ce\'d2\'c3\'c7\'ba\'af\'ca\'fd\'d7\'ee\'b3\'f5\'b5\'c4\'c9\'e8\'bc\'c6\'d3\'d0\'b3\'e5\'cd\'bb.\'cf\'c2\'c3\'e6\'d2\'bb\'bd\'da\'ce\'d2\'c3\'c7\'cc\'bd\'cc\'d6\'b3\'f6\'cf\'d6\'d5\'e2\'d0\'a9\'bd\'e1\'b9\'fb\'b5\'c4\'d4\'ad\'d2\'f2\'ba\'cd\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d4\'da\'b1\'e0\'d2\'eb\'c6\'f7\'d6\'d0\'ca\'c7\'c8\'e7\'ba\'ce\'b4\'a6\'c0\'ed\'b5\'c4. \par
+\par
+\par
+(\'b6\'fe)\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d4\'da\'b1\'e0\'d2\'eb\'c6\'f7\'d6\'d0\'b5\'c4\'b4\'a6\'c0\'ed \par
+\par
+\'a1\'a1\'a1\'a1\'ce\'d2\'c3\'c7\'d6\'aa\'b5\'c0va_start,va_arg,va_end\'ca\'c7\'d4\'dastdarg.h\'d6\'d0\'b1\'bb\'b6\'a8\'d2\'e5\'b3\'c9\'ba\'ea\'b5\'c4,\'d3\'c9\'d3\'da1)\'d3\'b2\'bc\'fe\'c6\'bd\'cc\'a8\'b5\'c4\'b2\'bb\'cd\'ac 2)\'b1\'e0\'d2\'eb\'c6\'f7\'b5\'c4\'b2\'bb\'cd\'ac,\'cb\'f9\'d2\'d4\'b6\'a8\'d2\'e5\'b5\'c4\'ba\'ea\'d2\'b2\'d3\'d0\'cb\'f9\'b2\'bb\'cd\'ac,\'cf\'c2\'c3\'e6\'d2\'d4VC++\'d6\'d0stdarg.h\'c0\'efx86\'c6\'bd\'cc\'a8\'b5\'c4\'ba\'ea\'b6\'a8\'d2\'e5\'d5\'aa\'c2\'bc\'c8\'e7\'cf\'c2(\rquote /\rquote\'ba\'c5\'b1\'ed\'ca\'be\'d5\'db\'d0\'d0): \par
+\'a1\'a1\'a1\'a1typedef char * va_list; \par
+\par
+\'a1\'a1\'a1\'a1#define _INTSIZEOF(n) / \par
+\'a1\'a1\'a1\'a1((sizeof(n)+sizeof(int)-1)&~(sizeof(int) - 1) ) \par
+\par
+\'a1\'a1\'a1\'a1#define va_start(ap,v) ( ap = (va_list)&v + _INTSIZEOF(v) ) \par
+\par
+\'a1\'a1\'a1\'a1#define va_arg(ap,t) / \par
+\'a1\'a1\'a1\'a1( *(t *)((ap += _INTSIZEOF(t)) - _INTSIZEOF(t)) ) \par
+\par
+\'a1\'a1\'a1\'a1#define va_end(ap) ( ap = (va_list)0 )\par
+\par
+\par
+\'a1\'a1 \'a1\'a1\'b6\'a8\'d2\'e5_INTSIZEOF(n)\'d6\'f7\'d2\'aa\'ca\'c7\'ce\'aa\'c1\'cb\'c4\'b3\'d0\'a9\'d0\'e8\'d2\'aa\'c4\'da\'b4\'e6\'b5\'c4\'b6\'d4\'c6\'eb\'b5\'c4\'cf\'b5\'cd\'b3.C\'d3\'ef\'d1\'d4\'b5\'c4\'ba\'af\'ca\'fd\'ca\'c7\'b4\'d3\'d3\'d2\'cf\'f2\'d7\'f3\'d1\'b9\'c8\'eb\'b6\'d1\'d5\'bb\'b5\'c4,\'cd\'bc(1)\'ca\'c7\'ba\'af\'ca\'fd\'b5\'c4\'b2\'ce\'ca\'fd\'d4\'da\'b6\'d1\'d5\'bb\'d6\'d0\'b5\'c4\'b7\'d6\'b2\'bc\'ce\'bb\'d6\'c3.\'ce\'d2 \'c3\'c7\'bf\'b4\'b5\'bdva_list\'b1\'bb\'b6\'a8\'d2\'e5\'b3\'c9char*,\'d3\'d0\'d2\'bb\'d0\'a9\'c6\'bd\'cc\'a8\'bb\'f2\'b2\'d9\'d7\'f7\'cf\'b5\'cd\'b3\'b6\'a8\'d2\'e5\'ce\'aavoid*.\'d4\'d9\'bf\'b4va_start\'b5\'c4\'b6\'a8\'d2\'e5,\'b6\'a8\'d2\'e5\'ce\'aa&v+ _INTSIZEOF(v),\'b6\'f8&v\'ca\'c7\'b9\'cc\'b6\'a8\'b2\'ce\'ca\'fd\'d4\'da\'b6\'d1\'d5\'bb\'b5\'c4\'b5\'d8\'d6\'b7,\'cb\'f9\'d2\'d4\'ce\'d2\'c3\'c7\'d4\'cb\'d0\'d0va_start(ap, v)\'d2\'d4\'ba\'f3,ap\'d6\'b8\'cf\'f2\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d4\'da\'b6\'d1\'d5\'bb\'b5\'c4\'b5\'d8\'d6\'b7,\'c8\'e7\'cd\'bc: \par
+\par
+\'b8\'df\'b5\'d8\'d6\'b7|-----------------------------| \par
+|\'ba\'af\'ca\'fd\'b7\'b5\'bb\'d8\'b5\'d8\'d6\'b7 | \par
+|-----------------------------| \par
+|....... | \par
+|-----------------------------| \par
+|\'b5\'dan\'b8\'f6\'b2\'ce\'ca\'fd(\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd) | \par
+|-----------------------------|<--va_start\'ba\'f3ap\'d6\'b8\'cf\'f2 \par
+|\'b5\'dan-1\'b8\'f6\'b2\'ce\'ca\'fd(\'d7\'ee\'ba\'f3\'d2\'bb\'b8\'f6\'b9\'cc\'b6\'a8\'b2\'ce\'ca\'fd)| \par
+\'b5\'cd\'b5\'d8\'d6\'b7|-----------------------------|<-- &v \par
+\'cd\'bc(1) \par
+\par
+\'a1\'a1\'a1\'a1\'c8\'bb\'ba\'f3,\'ce\'d2\'c3\'c7\'d3\'c3va_arg()\'c8\'a1\'b5\'c3\'c0\'e0\'d0\'cdt\'b5\'c4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d6\'b5,\'d2\'d4\'c9\'cf\'c0\'fd\'ce\'aaint\'d0\'cd\'ce\'aa\'c0\'fd,\'ce\'d2\'c3\'c7\'bf\'b4\'d2\'bb\'cf\'c2va_arg\'c8\'a1int\'d0\'cd\'b5\'c4\'b7\'b5\'bb\'d8\'d6\'b5: \par
+\'a1\'a1\'a1\'a1j= ( *(int*)((ap += _INTSIZEOF(int))-_INTSIZEOF(int)) );\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'ca\'d7\'cf\'c8ap+=sizeof(int),\'d2\'d1\'be\'ad\'d6\'b8\'cf\'f2\'cf\'c2\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'b5\'d8\'d6\'b7\'c1\'cb.\'c8\'bb\'ba\'f3\'b7\'b5\'bb\'d8ap-sizeof(int)\'b5\'c4int*\'d6\'b8\'d5\'eb,\'d5\'e2\'d5\'fd\'ca\'c7\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d4\'da\'b6\'d1\'d5\'bb\'c0\'ef\'b5\'c4\'b5\'d8\'d6\'b7(\'cd\'bc2).\'c8\'bb\'ba\'f3\'d3\'c3*\'c8\'a1\'b5\'c3\'d5\'e2\'b8\'f6\'b5\'d8\'d6\'b7\'b5\'c4\'c4\'da\'c8\'dd(\'b2\'ce\'ca\'fd\'d6\'b5)\'b8\'b3\'b8\'f8j. \par
+\par
+\'b8\'df\'b5\'d8\'d6\'b7|-----------------------------| \par
+|\'ba\'af\'ca\'fd\'b7\'b5\'bb\'d8\'b5\'d8\'d6\'b7 | \par
+|-----------------------------| \par
+|....... | \par
+|-----------------------------|<--va_arg\'ba\'f3ap\'d6\'b8\'cf\'f2 \par
+|\'b5\'dan\'b8\'f6\'b2\'ce\'ca\'fd(\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd) | \par
+|-----------------------------|<--va_start\'ba\'f3ap\'d6\'b8\'cf\'f2 \par
+|\'b5\'dan-1\'b8\'f6\'b2\'ce\'ca\'fd(\'d7\'ee\'ba\'f3\'d2\'bb\'b8\'f6\'b9\'cc\'b6\'a8\'b2\'ce\'ca\'fd)| \par
+\'b5\'cd\'b5\'d8\'d6\'b7|-----------------------------|<-- &v \par
+\'cd\'bc(2) \par
+\par
+\'a1\'a1 \'a1\'a1\'d7\'ee\'ba\'f3\'d2\'aa\'cb\'b5\'b5\'c4\'ca\'c7va_end\'ba\'ea\'b5\'c4\'d2\'e2\'cb\'bc,x86\'c6\'bd\'cc\'a8\'b6\'a8\'d2\'e5\'ce\'aaap=(char*)0;\'ca\'b9ap\'b2\'bb\'d4\'d9\'d6\'b8\'cf\'f2\'b6\'d1\'d5\'bb,\'b6\'f8\'ca\'c7\'b8\'faNULL\'d2\'bb\'d1\'f9.\'d3\'d0\'d0\'a9\'d6\'b1\'bd\'d3\'b6\'a8\'d2\'e5\'ce\'aa ((void*)0),\'d5\'e2\'d1\'f9\'b1\'e0\'d2\'eb\'c6\'f7\'b2\'bb\'bb\'e1\'ce\'aava_end\'b2\'fa\'c9\'fa\'b4\'fa\'c2\'eb,\'c0\'fd\'c8\'e7gcc\'d4\'dalinux\'b5\'c4x86\'c6\'bd\'cc\'a8\'be\'cd\'ca\'c7\'d5\'e2\'d1\'f9\'b6\'a8\'d2\'e5\'b5\'c4.\'d4\'da\'d5\'e2\'c0\'ef\'b4\'f3\'bc\'d2\'d2\'aa\'d7\'a2\'d2\'e2\'d2\'bb\'b8\'f6\'ce\'ca\'cc\'e2:\'d3\'c9\'d3\'da\'b2\'ce\'ca\'fd \'b5\'c4\'b5\'d8\'d6\'b7\'d3\'c3\'d3\'dava_start\'ba\'ea,\'cb\'f9\'d2\'d4\'b2\'ce\'ca\'fd\'b2\'bb\'c4\'dc\'c9\'f9\'c3\'f7\'ce\'aa\'bc\'c4\'b4\'e6\'c6\'f7\'b1\'e4\'c1\'bf\'bb\'f2\'d7\'f7\'ce\'aa\'ba\'af\'ca\'fd\'bb\'f2\'ca\'fd\'d7\'e9\'c0\'e0\'d0\'cd.\'b9\'d8\'d3\'dava_start, va_arg, va_end\'b5\'c4\'c3\'e8\'ca\'f6\'be\'cd\'ca\'c7\'d5\'e2\'d0\'a9\'c1\'cb,\'ce\'d2\'c3\'c7\'d2\'aa\'d7\'a2\'d2\'e2\'b5\'c4\'ca\'c7\'b2\'bb\'cd\'ac\'b5\'c4\'b2\'d9\'d7\'f7\'cf\'b5\'cd\'b3\'ba\'cd\'d3\'b2\'bc\'fe\'c6\'bd\'cc\'a8\'b5\'c4\'b6\'a8\'d2\'e5\'d3\'d0\'d0\'a9\'b2\'bb\'cd\'ac,\'b5\'ab\'d4\'ad\'c0\'ed\'c8\'b4\'ca\'c7\'cf\'e0\'cb\'c6\'b5\'c4. \par
+\par
+(\'c8\'fd)\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d4\'da\'b1\'e0\'b3\'cc\'d6\'d0\'d2\'aa\'d7\'a2\'d2\'e2\'b5\'c4\'ce\'ca\'cc\'e2 \par
+\par
+\'a1\'a1 \'a1\'a1\'d2\'f2\'ce\'aava_start, va_arg, va_end\'b5\'c8\'b6\'a8\'d2\'e5\'b3\'c9\'ba\'ea,\'cb\'f9\'d2\'d4\'cb\'fc\'cf\'d4\'b5\'c3\'ba\'dc\'d3\'de\'b4\'c0,\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'c0\'e0\'d0\'cd\'ba\'cd\'b8\'f6\'ca\'fd\'cd\'ea\'c8\'ab\'d4\'da\'b8\'c3\'ba\'af\'ca\'fd\'d6\'d0\'d3\'c9\'b3\'cc\'d0\'f2\'b4\'fa\'c2\'eb\'bf\'d8\'d6\'c6,\'cb\'fc\'b2\'a2\'b2\'bb\'c4\'dc\'d6\'c7\'c4\'dc\'b5\'d8\'ca\'b6\'b1\'f0\'b2\'bb\'cd\'ac\'b2\'ce\'ca\'fd\'b5\'c4\'b8\'f6\'ca\'fd\'ba\'cd\'c0\'e0\'d0\'cd.\'d3\'d0\'c8\'cb\'bb\'e1\'ce\'ca:\'c4\'c7 \'c3\'b4printf\'d6\'d0\'b2\'bb\'ca\'c7\'ca\'b5\'cf\'d6\'c1\'cb\'d6\'c7\'c4\'dc\'ca\'b6\'b1\'f0\'b2\'ce\'ca\'fd\'c2\'f0?\'c4\'c7\'ca\'c7\'d2\'f2\'ce\'aa\'ba\'af\'ca\'fdprintf\'ca\'c7\'b4\'d3\'b9\'cc\'b6\'a8\'b2\'ce\'ca\'fdformat\'d7\'d6\'b7\'fb\'b4\'ae\'c0\'b4\'b7\'d6\'ce\'f6\'b3\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'c0\'e0\'d0\'cd,\'d4\'d9\'b5\'f7\'d3\'c3va_arg\'b5\'c4\'c0\'b4\'bb\'f1\'c8\'a1\'bf\'c9 \'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4.\'d2\'b2\'be\'cd\'ca\'c7\'cb\'b5,\'c4\'e3\'cf\'eb\'ca\'b5\'cf\'d6\'d6\'c7\'c4\'dc\'ca\'b6\'b1\'f0\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'bb\'b0\'ca\'c7\'d2\'aa\'cd\'a8\'b9\'fd\'d4\'da\'d7\'d4\'bc\'ba\'b5\'c4\'b3\'cc\'d0\'f2\'c0\'ef\'d7\'f7\'c5\'d0\'b6\'cf\'c0\'b4\'ca\'b5\'cf\'d6\'b5\'c4.\'c1\'ed\'cd\'e2\'d3\'d0\'d2\'bb\'b8\'f6\'ce\'ca\'cc\'e2,\'d2\'f2\'ce\'aa\'b1\'e0\'d2\'eb\'c6\'f7\'b6\'d4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'af\'ca\'fd\'b5\'c4\'d4\'ad\'d0\'cd\'bc\'ec\'b2\'e9\'b2\'bb\'b9\'bb\'d1\'cf \'b8\'f1,\'b6\'d4\'b1\'e0\'b3\'cc\'b2\'e9\'b4\'ed\'b2\'bb\'c0\'fb.\'c8\'e7\'b9\'fbsimple_va_fun()\'b8\'c4\'ce\'aa: \par
+\'a1\'a1\'a1\'a1void simple_va_fun(int i, ...) \par
+\'a1\'a1\'a1\'a1\{ \par
+\'a1\'a1\'a1\'a1va_list arg_ptr; \par
+\'a1\'a1\'a1\'a1char *s=NULL; \par
+\par
+\'a1\'a1\'a1\'a1va_start(arg_ptr, i); \par
+\'a1\'a1\'a1\'a1s=va_arg(arg_ptr, char*); \par
+\'a1\'a1\'a1\'a1va_end(arg_ptr); \par
+\'a1\'a1\'a1\'a1printf("%d %s/n", i, s); \par
+\'a1\'a1\'a1\'a1return; \par
+\'a1\'a1\'a1\'a1\}\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'ce\'aachar*\'d0\'cd,\'b5\'b1\'ce\'d2\'c3\'c7\'cd\'fc\'bc\'c7\'d3\'c3\'c1\'bd\'b8\'f6\'b2\'ce\'ca\'fd\'c0\'b4\'b5\'f7\'d3\'c3\'b8\'c3\'ba\'af\'ca\'fd\'ca\'b1,\'be\'cd\'bb\'e1\'b3\'f6\'cf\'d6core dump(Unix) \'bb\'f2\'d5\'df\'d2\'b3\'c3\'e6\'b7\'c7\'b7\'a8\'b5\'c4\'b4\'ed\'ce\'f3(window\'c6\'bd\'cc\'a8).\'b5\'ab\'d2\'b2\'d3\'d0\'bf\'c9\'c4\'dc\'b2\'bb\'b3\'f6\'b4\'ed,\'b5\'ab\'b4\'ed\'ce\'f3\'c8\'b4\'ca\'c7\'c4\'d1\'d2\'d4\'b7\'a2\'cf\'d6,\'b2\'bb\'c0\'fb\'d3\'da\'ce\'d2\'c3\'c7\'d0\'b4\'b3\'f6\'b8\'df\'d6\'ca\'c1\'bf\'b5\'c4\'b3\'cc\'d0\'f2. \par
+\'d2\'d4\'cf\'c2\'cc\'e1\'d2\'bb\'cf\'c2va\'cf\'b5\'c1\'d0\'ba\'ea\'b5\'c4\'bc\'e6\'c8\'dd\'d0\'d4.System V Unix\'b0\'d1va_start\'b6\'a8\'d2\'e5\'ce\'aa\'d6\'bb\'d3\'d0\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'ea: \par
+\'a1\'a1\'a1\'a1va_start(va_list arg_ptr);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'b6\'f8ANSI C\'d4\'f2\'b6\'a8\'d2\'e5\'ce\'aa: \par
+\'a1\'a1\'a1\'a1va_start(va_list arg_ptr, prev_param);\par
+\par
+\par
+\'a1\'a1\'a1\'a1\'c8\'e7\'b9\'fb\'ce\'d2\'c3\'c7\'d2\'aa\'d3\'c3system V\'b5\'c4\'b6\'a8\'d2\'e5,\'d3\'a6\'b8\'c3\'d3\'c3vararg.h\'cd\'b7\'ce\'c4\'bc\'fe\'d6\'d0\'cb\'f9\'b6\'a8\'d2\'e5\'b5\'c4\'ba\'ea,ANSI C\'b5\'c4\'ba\'ea\'b8\'fasystem V\'b5\'c4\'ba\'ea\'ca\'c7\'b2\'bb\'bc\'e6\'c8\'dd\'b5\'c4,\'ce\'d2\'c3\'c7\'d2\'bb\'b0\'e3\'b6\'bc\'d3\'c3ANSI C,\'cb\'f9\'d2\'d4\'d3\'c3ANSI C\'b5\'c4\'b6\'a8\'d2\'e5\'be\'cd\'b9\'bb\'c1\'cb,\'d2\'b2\'b1\'e3\'d3\'da\'b3\'cc\'d0\'f2\'b5\'c4\'d2\'c6\'d6\'b2. \par
+\par
+\par
+\'d0\'a1\'bd\'e1: \par
+\'a1\'a1 \'a1\'a1\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'af\'ca\'fd\'d4\'ad\'c0\'ed\'c6\'e4\'ca\'b5\'ba\'dc\'bc\'f2\'b5\'a5,\'b6\'f8va\'cf\'b5\'c1\'d0\'ca\'c7\'d2\'d4\'ba\'ea\'b6\'a8\'d2\'e5\'c0\'b4\'b6\'a8\'d2\'e5\'b5\'c4,\'ca\'b5\'cf\'d6\'b8\'fa\'b6\'d1\'d5\'bb\'cf\'e0\'b9\'d8.\'ce\'d2\'c3\'c7\'d0\'b4\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'ba\'af\'ca\'fd\'b5\'c4C\'ba\'af\'ca\'fd\'ca\'b1,\'d3\'d0\'c0\'fb\'d2\'b2\'d3\'d0\'b1\'d7,\'cb\'f9\'d2\'d4\'d4\'da\'b2\'bb\'b1\'d8\'d2\'aa\'b5\'c4\'b3\'a1\'ba\'cf,\'ce\'d2\'c3\'c7 \'ce\'de\'d0\'e8\'d3\'c3\'b5\'bd\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd.\'c8\'e7\'b9\'fb\'d4\'daC++\'c0\'ef,\'ce\'d2\'c3\'c7\'d3\'a6\'b8\'c3\'c0\'fb\'d3\'c3C++\'b5\'c4\'b6\'e0\'cc\'ac\'d0\'d4\'c0\'b4\'ca\'b5\'cf\'d6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'b9\'a6\'c4\'dc,\'be\'a1\'c1\'bf\'b1\'dc\'c3\'e2\'d3\'c3C\'d3\'ef\'d1\'d4\'b5\'c4\'b7\'bd\'ca\'bd\'c0\'b4\'ca\'b5\'cf\'d6. \par
+}
+ 

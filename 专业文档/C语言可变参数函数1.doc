@@ -1,0 +1,108 @@
+{\rtf1\ansi\ansicpg936\deff0\deflang1033\deflangfe2052{\fonttbl{\f0\fmodern\fprq6\fcharset134 \'cb\'ce\'cc\'e5;}}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\lang2052\f0\fs20   C\'ba\'af\'ca\'fd\'d2\'aa\'d4\'da\'b3\'cc\'d0\'f2\'d6\'d0\'d3\'c3\'b5\'bd\'d2\'d4\'cf\'c2\'d5\'e2\'d0\'a9\'ba\'ea:\par
+void va_start( va_list arg_ptr, prev_param ); \par
+type va_arg( va_list arg_ptr, type ); \par
+void va_end( va_list arg_ptr );\par
+ \par
+va_list:\'d3\'c3\'c0\'b4\'b1\'a3\'b4\'e6\'ba\'eava_start\'a1\'a2va_arg\'ba\'cdva_end\'cb\'f9\'d0\'e8\'d0\'c5\'cf\'a2\'b5\'c4\'d2\'bb\'d6\'d6\'c0\'e0\'d0\'cd\'a1\'a3\'ce\'aa\'c1\'cb\'b7\'c3\'ce\'ca\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'d6\'d0\'b5\'c4\'b2\'ce\'ca\'fd\'a3\'ac\'b1\'d8\'d0\'eb\'c9\'f9\'c3\'f7\par
+             va_list\'c0\'e0\'d0\'cd\'b5\'c4\'d2\'bb\'b8\'f6\'b6\'d4\'cf\'f3       \'b6\'a8\'d2\'e5\'a3\'ba typedef char *  va_list;\par
+va_start:\'b7\'c3\'ce\'ca\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'d6\'d0\'b5\'c4\'b2\'ce\'ca\'fd\'d6\'ae\'c7\'b0\'ca\'b9\'d3\'c3\'b5\'c4\'ba\'ea\'a3\'ac\'cb\'fc\'b3\'f5\'ca\'bc\'bb\'af\'d3\'c3va_list\'c9\'f9\'c3\'f7\'b5\'c4\'b6\'d4\'cf\'f3\'a3\'ac\'b3\'f5\'ca\'bc\'bb\'af\'bd\'e1\'b9\'fb\'b9\'a9\'ba\'eava_arg\'ba\'cd\par
+               va_end\'ca\'b9\'d3\'c3\'a3\'bb\par
+va_arg: \'d5\'b9\'bf\'aa\'b3\'c9\'d2\'bb\'b8\'f6\'b1\'ed\'b4\'ef\'ca\'bd\'b5\'c4\'ba\'ea\'a3\'ac\'b8\'c3\'b1\'ed\'b4\'ef\'ca\'bd\'be\'df\'d3\'d0\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'d6\'d0\'cf\'c2\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'d6\'b5\'ba\'cd\'c0\'e0\'d0\'cd\'a1\'a3\'c3\'bf\'b4\'ce\'b5\'f7\'d3\'c3va_arg\'b6\'bc\'bb\'e1\'d0\'de\'b8\'c4\par
+              \'d3\'c3va_list\'c9\'f9\'c3\'f7\'b5\'c4\'b6\'d4\'cf\'f3\'a3\'ac\'b4\'d3\'b6\'f8\'ca\'b9\'b8\'c3\'b6\'d4\'cf\'f3\'d6\'b8\'cf\'f2\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'d6\'d0\'b5\'c4\'cf\'c2\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\'a3\'bb\par
+va_end:\'b8\'c3\'ba\'ea\'ca\'b9\'b3\'cc\'d0\'f2\'c4\'dc\'b9\'bb\'b4\'d3\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'d3\'c3\'ba\'eava_start\'d2\'fd\'d3\'c3\'b5\'c4\'ba\'af\'ca\'fd\'d6\'d0\'d5\'fd\'b3\'a3\'b7\'b5\'bb\'d8\'a1\'a3\par
+va\'d4\'da\'d5\'e2\'c0\'ef\'ca\'c7variable-argument(\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd)\'b5\'c4\'d2\'e2\'cb\'bc. \par
+\'d5\'e2\'d0\'a9\'ba\'ea\'b6\'a8\'d2\'e5\'d4\'dastdarg.h\'d6\'d0,\'cb\'f9\'d2\'d4\'d3\'c3\'b5\'bd\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'b3\'cc\'d0\'f2\'d3\'a6\'b8\'c3\'b0\'fc\'ba\'ac\'d5\'e2\'b8\'f6\'cd\'b7\'ce\'c4\'bc\'fe.\'cf\'c2\'c3\'e6\'ce\'d2\'c3\'c7\'d0\'b4\'d2\'bb\'b8\'f6\'bc\'f2\'b5\'a5\'b5\'c4\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'ba\'af\'ca\'fd,\'b8\'c4\'ba\'af\'ca\'fd\'d6\'c1\'c9\'d9\'d3\'d0\'d2\'bb\'b8\'f6\'d5\'fb\'ca\'fd\'b2\'ce\'ca\'fd,\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'d2\'b2\'ca\'c7\'d5\'fb\'ca\'fd,\'ca\'c7\'bf\'c9\'d1\'a1\'b5\'c4.\'ba\'af\'ca\'fd\'d6\'bb\'ca\'c7\'b4\'f2\'d3\'a1\'d5\'e2\'c1\'bd\'b8\'f6\'b2\'ce\'ca\'fd\'b5\'c4\'d6\'b5.\par
+[cpp] view plain copy\par
+#include <stdio.h>;    \par
+#include <string.h>;    \par
+#include <stdarg.h>;    \par
+  \par
+/* ANSI\'b1\'ea\'d7\'bc\'d0\'ce\'ca\'bd\'b5\'c4\'c9\'f9\'c3\'f7\'b7\'bd\'ca\'bd\'a3\'ac\'c0\'a8\'ba\'c5\'c4\'da\'b5\'c4\'ca\'a1\'c2\'d4\'ba\'c5\'b1\'ed\'ca\'be\'bf\'c9\'d1\'a1\'b2\'ce\'ca\'fd */    \par
+  \par
+int demo(char *msg, ... )    \par
+\{    \par
+    va_list argp;                   /* \'b6\'a8\'d2\'e5\'b1\'a3\'b4\'e6\'ba\'af\'ca\'fd\'b2\'ce\'ca\'fd\'b5\'c4\'bd\'e1\'b9\'b9 */    \par
+    int argno = 0;                  /* \'bc\'cd\'c2\'bc\'b2\'ce\'ca\'fd\'b8\'f6\'ca\'fd */    \par
+    char *para;                     /* \'b4\'e6\'b7\'c5\'c8\'a1\'b3\'f6\'b5\'c4\'d7\'d6\'b7\'fb\'b4\'ae\'b2\'ce\'ca\'fd */    \par
+      \par
+                                    /* argp\'d6\'b8\'cf\'f2\'b4\'ab\'c8\'eb\'b5\'c4\'b5\'da\'d2\'bb\'b8\'f6\'bf\'c9\'d1\'a1\'b2\'ce\'ca\'fd\'a3\'ac    msg\'ca\'c7\'d7\'ee\'ba\'f3\'d2\'bb\'b8\'f6\'c8\'b7\'b6\'a8\'b5\'c4\'b2\'ce\'ca\'fd */    \par
+    va_start( argp, msg );    \par
+      \par
+    while (1)   \par
+    \{    \par
+        para = va_arg( argp, char *);                 /*    \'c8\'a1\'b3\'f6\'b5\'b1\'c7\'b0\'b5\'c4\'b2\'ce\'ca\'fd\'a3\'ac\'c0\'e0\'d0\'cd\'ce\'aachar *. */    \par
+        if ( strcmp( para, "/0") == 0 )    \par
+                                                      /* \'b2\'c9\'d3\'c3\'bf\'d5\'b4\'ae\'d6\'b8\'ca\'be\'b2\'ce\'ca\'fd\'ca\'e4\'c8\'eb\'bd\'e1\'ca\'f8 */    \par
+            break;    \par
+        printf("Parameter #%d is: %s/n", argno, para);    \par
+        argno++;    \par
+    \}    \par
+    va_end( argp );                                   /* \'bd\'abargp\'d6\'c3\'ce\'aaNULL */    \par
+    return 0;    \par
+\}  \par
+  \par
+  \par
+void main( void )    \par
+\{    \par
+demo("DEMO", "This", "is", "a", "demo!" ,"333333", "/0");    \par
+  \par
+  \par
+\}    \par
+ \par
+\'b4\'d3\'d5\'e2\'b8\'f6\'ba\'af\'ca\'fd\'b5\'c4\'ca\'b5\'cf\'d6\'bf\'c9\'d2\'d4\'bf\'b4\'b5\'bd,\'ce\'d2\'c3\'c7\'ca\'b9\'d3\'c3\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'d3\'a6\'b8\'c3\'d3\'d0\'d2\'d4\'cf\'c2\'b2\'bd\'d6\'e8: \par
+1)\'ca\'d7\'cf\'c8\'d4\'da\'ba\'af\'ca\'fd\'c0\'ef\'b6\'a8\'d2\'e5\'d2\'bb\'b8\'f6va_list\'d0\'cd\'b5\'c4\'b1\'e4\'c1\'bf,\'d5\'e2\'c0\'ef\'ca\'c7arg_ptr,\'d5\'e2\'b8\'f6\'b1\'e4 \par
+\'c1\'bf\'ca\'c7\'d6\'b8\'cf\'f2\'b2\'ce\'ca\'fd\'b5\'c4\'d6\'b8\'d5\'eb. \par
+2)\'c8\'bb\'ba\'f3\'d3\'c3va_start\'ba\'ea\'b3\'f5\'ca\'bc\'bb\'af\'b1\'e4\'c1\'bfarg_ptr,\'d5\'e2\'b8\'f6\'ba\'ea\'b5\'c4\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'ca\'c7\'b5\'da \par
+\'d2\'bb\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'c7\'b0\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd,\'ca\'c7\'d2\'bb\'b8\'f6\'b9\'cc\'b6\'a8\'b5\'c4\'b2\'ce\'ca\'fd. \par
+3)\'c8\'bb\'ba\'f3\'d3\'c3va_arg\'b7\'b5\'bb\'d8\'bf\'c9\'b1\'e4\'b5\'c4\'b2\'ce\'ca\'fd,\'b2\'a2\'b8\'b3\'d6\'b5\'b8\'f8\'d5\'fb\'ca\'fdj. va_arg\'b5\'c4\'b5\'da\'b6\'fe\'b8\'f6 \par
+\'b2\'ce\'ca\'fd\'ca\'c7\'c4\'e3\'d2\'aa\'b7\'b5\'bb\'d8\'b5\'c4\'b2\'ce\'ca\'fd\'b5\'c4\'c0\'e0\'d0\'cd,\'d5\'e2\'c0\'ef\'ca\'c7int\'d0\'cd. \par
+4)\'d7\'ee\'ba\'f3\'d3\'c3va_end\'ba\'ea\'bd\'e1\'ca\'f8\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4\'bb\'f1\'c8\'a1.\'c8\'bb\'ba\'f3\'c4\'e3\'be\'cd\'bf\'c9\'d2\'d4\'d4\'da\'ba\'af\'ca\'fd\'c0\'ef\'ca\'b9 \par
+\'d3\'c3\'b5\'da\'b6\'fe\'b8\'f6\'b2\'ce\'ca\'fd\'c1\'cb.\'c8\'e7\'b9\'fb\'ba\'af\'ca\'fd\'d3\'d0\'b6\'e0\'b8\'f6\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'b5\'c4,\'d2\'c0\'b4\'ce\'b5\'f7\'d3\'c3va_arg\'bb\'f1 \par
+\'c8\'a1\'b8\'f7\'b8\'f6\'b2\'ce\'ca\'fd. \par
+\'b6\'fe\'a1\'a2\'bf\'c9\'b1\'e4\'b2\'ce\'c0\'e0\'d0\'cd\'cf\'dd\'da\'e5\par
+\'cf\'c2\'c3\'e6\'b5\'c4\'b4\'fa\'c2\'eb\'ca\'c7\'b4\'ed\'ce\'f3\'b5\'c4\'a3\'ac\'d4\'cb\'d0\'d0\'ca\'b1\'b5\'c3\'b2\'bb\'b5\'bd\'d4\'a4\'c6\'da\'b5\'c4\'bd\'e1\'b9\'fb\'a3\'ba\par
+view plaincopy to clipboardprint?\par
+va_start(pArg, plotNo);   \par
+fValue = va_arg(pArg, float);  // \'c0\'e0\'d0\'cd\'d3\'a6\'b8\'c4\'ce\'aadouble\'a3\'ac\'b2\'bb\'d6\'a7\'b3\'d6float   \par
+va_end(pArg);  \par
+va_start(pArg, plotNo);\par
+fValue = va_arg(pArg, float);  // \'c0\'e0\'d0\'cd\'d3\'a6\'b8\'c4\'ce\'aadouble\'a3\'ac\'b2\'bb\'d6\'a7\'b3\'d6float\par
+va_end(pArg);\par
+\'cf\'c2\'c3\'e6\'c1\'d0\'b3\'f6va_arg(argp, type)\'ba\'ea\'d6\'d0\'b2\'bb\'d6\'a7\'b3\'d6\'b5\'c4type\'a3\'ba\par
+\emdash\emdash  char\'a1\'a2signed char\'a1\'a2unsigned char\par
+\emdash\emdash  short\'a1\'a2unsigned short\par
+\emdash\emdash  signed short\'a1\'a2short int\'a1\'a2signed short int\'a1\'a2unsigned short int\par
+\emdash\emdash  float\par
+\'d4\'daC\'d3\'ef\'d1\'d4\'d6\'d0\'a3\'ac\'b5\'f7\'d3\'c3\'d2\'bb\'b8\'f6\'b2\'bb\'b4\'f8\'d4\'ad\'d0\'cd\'c9\'f9\'c3\'f7\'b5\'c4\'ba\'af\'ca\'fd\'ca\'b1\'a3\'ac\'b5\'f7\'d3\'c3\'d5\'df\'bb\'e1\'b6\'d4\'c3\'bf\'b8\'f6\'b2\'ce\'ca\'fd\'d6\'b4\'d0\'d0\ldblquote\'c4\'ac\'c8\'cf\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'cc\'e1\'c9\'fd(default argument promotions)\rdblquote\'a1\'a3\'b8\'c3\'b9\'e6\'d4\'f2\'cd\'ac\'d1\'f9\'ca\'ca\'d3\'c3\'d3\'da\'bf\'c9\'b1\'e4\'b2\'ce\'ca\'fd\'ba\'af\'ca\'fd\emdash\emdash\'b6\'d4\'bf\'c9\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'b3\'ac\'b3\'f6\'d7\'ee\'ba\'f3\'d2\'bb\'b8\'f6\'d3\'d0\'c0\'e0\'d0\'cd\'c9\'f9\'c3\'f7\'b5\'c4\'d0\'ce\'ca\'bd\'b2\'ce\'ca\'fd\'d6\'ae\'ba\'f3\'b5\'c4\'c3\'bf\'d2\'bb\'b8\'f6\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'a3\'ac\'d2\'b2\'bd\'ab\'d6\'b4\'d0\'d0\'c9\'cf\'ca\'f6\'cc\'e1\'c9\'fd\'b9\'a4\'d7\'f7\'a1\'a3\par
+\'cc\'e1\'c9\'fd\'b9\'a4\'d7\'f7\'c8\'e7\'cf\'c2\'a3\'ba\par
+\emdash\emdash float\'c0\'e0\'d0\'cd\'b5\'c4\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'bd\'ab\'cc\'e1\'c9\'fd\'b5\'bddouble\par
+\emdash\emdash char\'a1\'a2short\'ba\'cd\'cf\'e0\'d3\'a6\'b5\'c4signed\'a1\'a2unsigned\'c0\'e0\'d0\'cd\'b5\'c4\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'cc\'e1\'c9\'fd\'b5\'bdint\par
+\emdash\emdash\'c8\'e7\'b9\'fbint\'b2\'bb\'c4\'dc\'b4\'e6\'b4\'a2\'d4\'ad\'d6\'b5\'a3\'ac\'d4\'f2\'cc\'e1\'c9\'fd\'b5\'bdunsigned int\par
+\'c8\'bb\'ba\'f3\'a3\'ac\'b5\'f7\'d3\'c3\'d5\'df\'bd\'ab\'cc\'e1\'c9\'fd\'ba\'f3\'b5\'c4\'b2\'ce\'ca\'fd\'b4\'ab\'b5\'dd\'b8\'f8\'b1\'bb\'b5\'f7\'d3\'c3\'d5\'df\'a1\'a3\par
+\'cb\'f9\'d2\'d4\'a3\'ac\'bf\'c9\'b1\'e4\'b2\'ce\'ba\'af\'ca\'fd\'c4\'da\'ca\'c7\'be\'f8\'b6\'d4\'ce\'de\'b7\'a8\'bd\'d3\'ca\'d5\'b5\'bd\'c9\'cf\'ca\'f6\'c0\'e0\'d0\'cd\'b5\'c4\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'b5\'c4\'a1\'a3\par
+\par
+\'b9\'d8\'d3\'da\'b8\'c3\'cf\'dd\'be\'ae\'a3\'acC/C++\'d6\'f8\'d7\'f7\'d6\'d0\'d3\'d0\'d2\'d4\'cf\'c2\'c3\'e8\'ca\'f6\'a3\'ba\par
+\par
+\'d4\'da\'a1\'b6C\'d3\'ef\'d1\'d4\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'a1\'b7\'b6\'d4\'bf\'c9\'b1\'e4\'b3\'a4\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'b5\'c4\'cf\'e0\'b9\'d8\'d5\'c2\'bd\'da\'d6\'d0\'a3\'ac\'b2\'a2\'c3\'bb\'d3\'d0\'cc\'e1\'b5\'bd\'d5\'e2\'b8\'f6\'cf\'dd\'da\'e5\'a1\'a3\'b5\'ab\'ca\'c7\'d3\'d0\'cc\'e1\'b5\'bd\'c4\'ac\'c8\'cf\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'cc\'e1\'c9\'fd\'b5\'c4\'b9\'e6\'d4\'f2\'a3\'ba\par
+\'d4\'da\'c3\'bb\'d3\'d0\'ba\'af\'ca\'fd\'d4\'ad\'d0\'cd\'b5\'c4\'c7\'e9\'bf\'f6\'cf\'c2\'a3\'acchar\'d3\'ebshort\'c0\'e0\'d0\'cd\'b6\'bc\'bd\'ab\'b1\'bb\'d7\'aa\'bb\'bb\'ce\'aaint\'c0\'e0\'d0\'cd\'a3\'acfloat\'c0\'e0\'d0\'cd\'bd\'ab\'b1\'bb\'d7\'aa\'bb\'bb\'ce\'aadouble\'c0\'e0\'d0\'cd\'a1\'a3\par
+                \emdash\emdash\'a1\'b6C\'d3\'ef\'d1\'d4\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'a1\'b7\'b5\'da2\'b0\'e6  2.7 \'c0\'e0\'d0\'cd\'d7\'aa\'bb\'bb p36\par
+\'d4\'da\'c6\'e4\'cb\'fb\'d2\'bb\'d0\'a9\'ca\'e9\'bc\'ae\'d6\'d0\'a3\'ac\'d2\'b2\'d3\'d0\'cc\'e1\'b5\'bd\'d5\'e2\'b8\'f6\'b9\'e6\'d4\'f2\'a3\'ba\par
+\'ca\'c2\'c7\'e9\'ba\'dc\'c7\'e5\'b3\'fe\'a3\'ac\'c8\'e7\'b9\'fb\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\'c3\'bb\'d3\'d0\'c9\'f9\'c3\'f7\'a3\'ac\'b1\'e0\'d2\'eb\'c6\'f7\'be\'cd\'c3\'bb\'d3\'d0\'d0\'c5\'cf\'a2\'c8\'a5\'b6\'d4\'cb\'fc\'d6\'b4\'d0\'d0\'b1\'ea\'d7\'bc\'b5\'c4\'c0\'e0\'d0\'cd\'bc\'ec\'b2\'e9\'ba\'cd\'d7\'aa\'bb\'bb\'a1\'a3\par
+\'d4\'da\'d5\'e2\'d6\'d6\'c7\'e9\'bf\'f6\'cf\'c2\'a3\'ac\'d2\'bb\'b8\'f6char\'bb\'f2short\'bd\'ab\'d7\'f7\'ce\'aaint\'b4\'ab\'b5\'dd\'a3\'acfloat\'bd\'ab\'d7\'f7\'ce\'aadouble\'b4\'ab\'b5\'dd\'a1\'a3\par
+\'d5\'e2\'d0\'a9\'d7\'f6\'ce\'b4\'b1\'d8\'ca\'c7\'b3\'cc\'d0\'f2\'d4\'b1\'cb\'f9\'c6\'da\'cd\'fb\'b5\'c4\'a1\'a3\par
+\'bd\'c5\'d7\'a2\'a3\'ba\'d5\'e2\'d0\'a9\'b6\'bc\'ca\'c7\'d3\'c9C\'d3\'ef\'d1\'d4\'bc\'cc\'b3\'d0\'c0\'b4\'b5\'c4\'b1\'ea\'d7\'bc\'cc\'e1\'c9\'fd\'a1\'a3\par
+\'b6\'d4\'d3\'da\'d3\'c9\'ca\'a1\'c2\'d4\'ba\'c5\'b1\'ed\'ca\'be\'b5\'c4\'b2\'ce\'ca\'fd\'a3\'ac\'c6\'e4\'ca\'b5\'bc\'ca\'b2\'ce\'ca\'fd\'d4\'da\'b4\'ab\'b5\'dd\'d6\'ae\'c7\'b0\'d7\'dc\'d6\'b4\'d0\'d0\'d5\'e2\'d0\'a9\'cc\'e1\'c9\'fd\'a3\'a8\'c8\'e7\'b9\'fb\'cb\'fc\'c3\'c7\'ca\'f4\'d3\'da\'d0\'e8\'d2\'aa\'cc\'e1\'c9\'fd\'b5\'c4\'c0\'e0\'d0\'cd\'a3\'a9\'a3\'ac\'bd\'ab\'cc\'e1\'c9\'fd\'ba\'f3\'b5\'c4\'d6\'b5\'b4\'ab\'b5\'dd\'b8\'f8\'d3\'d0\'b9\'d8\'b5\'c4\'ba\'af\'ca\'fd\'a1\'a3\emdash\emdash\'d2\'eb\'d5\'df\'d7\'a2\par
+                \emdash\emdash\'a1\'b6C++\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'d3\'ef\'d1\'d4\'a1\'b7\'b5\'da3\'b0\'e6-\'cc\'d8\'b1\'f0\'b0\'e6 7.6 p138\par
+\'a1\'ad\'a1\'ad float\'c0\'e0\'d0\'cd\'b5\'c4\'b2\'ce\'ca\'fd\'bb\'e1\'d7\'d4\'b6\'af\'d7\'aa\'bb\'bb\'ce\'aadouble\'c0\'e0\'d0\'cd\'a3\'acshort\'bb\'f2char\'c0\'e0\'d0\'cd\'b5\'c4\'b2\'ce\'ca\'fd\'bb\'e1\'d7\'d4\'b6\'af\'d7\'aa\'bb\'bb\'ce\'aaint\'c0\'e0\'d0\'cd \'a1\'ad\'a1\'ad\par
+                \emdash\emdash\'a1\'b6C\'cf\'dd\'da\'e5\'d3\'eb\'c8\'b1\'cf\'dd\'a1\'b7 4.4 \'d0\'ce\'b2\'ce\'a1\'a2\'ca\'b5\'b2\'ce\'d3\'eb\'b7\'b5\'bb\'d8\'d6\'b5 p73\par
+\'d5\'e2\'c0\'ef\'d3\'d0\'d2\'bb\'b8\'f6\'cf\'dd\'da\'e5\'d0\'e8\'d2\'aa\'b1\'dc\'c3\'e2\'a3\'ba\par
+va_arg\'ba\'ea\'b5\'c4\'b5\'da2\'b8\'f6\'b2\'ce\'ca\'fd\'b2\'bb\'c4\'dc\'b1\'bb\'d6\'b8\'b6\'a8\'ce\'aachar\'a1\'a2short\'bb\'f2\'d5\'dffloat\'c0\'e0\'d0\'cd\'a1\'a3\par
+\'d2\'f2\'ce\'aachar\'ba\'cdshort\'c0\'e0\'d0\'cd\'b5\'c4\'b2\'ce\'ca\'fd\'bb\'e1\'b1\'bb\'d7\'aa\'bb\'bb\'ce\'aaint\'c0\'e0\'d0\'cd\'a3\'ac\'b6\'f8float\'c0\'e0\'d0\'cd\'b5\'c4\'b2\'ce\'ca\'fd\'bb\'e1\'b1\'bb\'d7\'aa\'bb\'bb\'ce\'aadouble\'c0\'e0\'d0\'cd \'a1\'ad\'a1\'ad\par
+\'c0\'fd\'c8\'e7\'a3\'ac\'d5\'e2\'d1\'f9\'d0\'b4\'bf\'cf\'b6\'a8\'ca\'c7\'b2\'bb\'b6\'d4\'b5\'c4\'a3\'ba\par
+c = va_arg(ap,char);\par
+\'d2\'f2\'ce\'aa\'ce\'d2\'c3\'c7\'ce\'de\'b7\'a8\'b4\'ab\'b5\'dd\'d2\'bb\'b8\'f6char\'c0\'e0\'d0\'cd\'b2\'ce\'ca\'fd\'a3\'ac\'c8\'e7\'b9\'fb\'b4\'ab\'b5\'dd\'c1\'cb\'a3\'ac\'cb\'fc\'bd\'ab\'bb\'e1\'b1\'bb\'d7\'d4\'b6\'af\'d7\'aa\'bb\'af\'ce\'aaint\'c0\'e0\'d0\'cd\'a1\'a3\'c9\'cf\'c3\'e6\'b5\'c4\'ca\'bd\'d7\'d3\'d3\'a6\'b8\'c3\'d0\'b4\'b3\'c9\'a3\'ba\par
+c = va_arg(ap,int);\par
+                \emdash\emdash\'a1\'b6C\'cf\'dd\'da\'e5\'d3\'eb\'c8\'b1\'cf\'dd\'a1\'b7p164\par
+}
+ 

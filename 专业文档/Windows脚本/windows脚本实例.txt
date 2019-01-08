@@ -1,0 +1,248 @@
+从Windows 98时代起，各种脚本文件不断出现，脚本文件的作用是为了实现各种脚本文件在 Windows 界面或 Dos 命令提示符下的直接运行，微软就在系统内植入了一个基于 32 位 Windows 平台、独立的脚本运行环境，并将其命名为“Windows Scripting Host（Windows 脚本宿主以下简称WSH）”。
+WSH 诞生后，在 Windows 系列产品中很快得到了推广。除 Windows 98 外，微软在 Internet Information Server、Windows ME、Windows 2000系列产品以及 Windows XP Professional等产品中都嵌入了 WSH。一般来说，各种软件总要考虑多数人的习惯和需求，而对于一些个性化很强的需求，通用软件则很难满足。现在利用WSH，我们可以完成很多有趣又实用的功能，而且实现代码非常简单，而且完全是为自己量身定做，100%满足自己的需求。这么简单、实用有有趣的东西，怎么可以放过呢？
+一、WSH 是怎么样工作的
+WSH正常工作的前提条件是系统中必须有IE3.0以上的版本，因为 WSH 在工作时需要使用IE 中的 VBScript 和 JScript 解释引擎。
+首先，我们来看一个最简单的例子，打开记事本，在其中写下：
+WScript.Echo("你好！电脑")
+然后将它为以 .vbs 或 .js 为后缀名（千万不能保存为TXT文件，保存的时候在“文件类型”中选择“所有文件”）的文件进行保存，然后关掉这个记事本。从文件的图标来看已经变成一个脚本文件，双击执行这个文件，看看结果吧（如图1），我们编辑的第一个脚本已经成功运行啦！
+图1
+现在，就让我们来看看脚本文件经由WSH 执行的过程。首先WSH根据脚本文件后缀名，在系统注册表中查询所需的脚本引擎时，如VBScript或者JScript。然后使用相应的脚本引擎执行脚本命令，其中，一些脚本指令会使用到WSH的内置对象（如处理注册表项），这时，脚本指令就会向WSH提出请求，并由WSH完成这些指令。
+那么，如何去编写并运行WSH脚本呢？WSH脚本文件的编写十分方便，你可以选用任意一个文字编辑器进行编写，写完后，你只需将它保存为 WSH 所支持的文件名就行了（如 .js 文件、.vbs 文件）。最常用的编辑器就是我们编写第一个脚本文件用到的记事本（Notepad）了。
+
+
+一、WSH初步
+下面，我们来看看一些WSH的初步实例，其中每个实例可以实现一个简单的功能，在我们了解每个实例的功能后，我们会把这些例子综合成一个非常实用的脚本，帮助你实现实用、个性化的强大功能。
+1.在桌面创建快捷方式
+WSHShell = WScript.CreateObject("WScript.Shell");
+DesktopPath = WSHShell.SpecialFolders("Desktop");
+Shortcut1 = WSHShell.CreateShortcut(DesktopPath + "\\记事本快捷方式.lnk");
+Shortcut1.TargetPath = "c:\\Windows\\notepad.exe";
+Shortcut1.Save();
+其中SpecialFolders这个函数是用来读取桌面路径的，取得桌面路径后，在桌面上创建一个“\记事本快捷方式.lnk”的文件，并将这个快捷方式文件的目标指向 Notepad.exe，最后将这些信息保存，这个脚本的工作就完成了。
+
+2.执行特定的命令
+下列这个示例会用记事本打开“ C:\autoexec.bat”文件，并开启 DOS 命令窗口（并列出执行 dir c:\Windows 的结果），程序代码如下：
+
+// 产生 WSH Shell
+shell = WScript.CreateObject("WScript.Shell");
+
+// 开启记事本并加载 c:\autoexec.bat
+shell.Run("notepad.exe c:\\autoexec.bat");
+
+// 开启 DOS 命令窗口并执行 dir c:\Windows
+shell.Run("cmd /K dir c:\\Windows");
+
+
+在上述范例中，所开启的应用程序会保持开启状态，而 WSH 会持续执行其后的程序代码。若要等待应用程序被关闭后，才继续执行其后的 WSH 程序代码，可以在 run() 之后再加上其它参数。如我们需要在关闭Notepad后再继续执行，应该怎么办呢？
+
+// 如何由 WSH 执行其它应用程序，并等待应用程序结束后才继续执行 WSH 程序代码
+shell = new ActiveXObject("WScript.Shell");
+intReturn = shell.Run("notepad " + WScript.ScriptFullName, 1, true);
+shell.Popup("记事本已经被关闭！");
+
+3.列出一个特定目录下的所有文件
+//创建文件系统对象
+fso = new ActiveXObject("Scripting.FileSystemObject");
+//指向指定的文件夹
+dir="c:\\Windows\\temp";
+fsofolder = fso.GetFolder(dir);
+// 搜集文件夹中包含的文件
+colFiles = fsofolder.Files;
+fc = new Enumerator( colFiles );
+//显示并继续读取其它文件的文件名直到完成
+WScript.Echo("Files under \""+dir+"\":");
+for (; !fc.atEnd(); fc.moveNext() ){
+WScript.Echo(fc.item());
+}
+脚本执行后会将指定目录中（C:\windows\temp）的所有文件一一列出来。
+
+4.显示本机IP地址
+ws = new ActiveXObject( "MSWinsock.Winsock" );
+WScript.Echo("本机IP地址是：" + ws.LocalIP);
+通过MSWinsock.Winsock这个函数将IP地址收集起来并进行显示。
+
+5.列出磁盘驱动器及其相关性质
+
+fso = new ActiveXObject("Scripting.FileSystemObject");
+driveTypeNames=["未知类型", "可移动磁盘", "硬盘", "网络磁盘驱动器", "光盘", "虚拟磁盘"];
+e = new Enumerator(fso.Drives);
+s = "";
+for (; !e.atEnd(); e.moveNext()) {
+x = e.item();
+WScript.Echo(x.DriveLetter+":")
+WScript.Echo(" 磁盘类型：" + x.DriveType + " (" + driveTypeNames[x.DriveType] + ")");
+WScript.Echo(" 共享名称：" + x.ShareName);
+WScript.Echo(" 磁盘是否就绪：" + x.IsReady);
+if (x.IsReady){
+WScript.Echo(" 卷标：" + x.VolumeName);
+WScript.Echo(" 空间大小：" + x.AvailableSpace + "字节");
+}
+}
+执行了这个脚本以后会显示出该磁盘驱动器的类型、卷标、空间大小、共享名称等相关信息。
+
+6.显示当前时间
+today = new Date();
+WScript.Echo("电脑迷为您报时："+today.toLocaleString());
+除了这样的方法之外，还有一种比较复杂一点的方法，可以显示上、下午时间
+function getTime() {
+today = new Date();
+hour = today.getHours();
+minute = today.getMinutes();
+second = today.getSeconds();
+prepand = (hour>=12)? "下午":"上午";
+hour = (hour>=12)? hour-12:hour;
+str = "现在时间是"+prepand+hour+"点"+minute+"分"+second+"秒";
+return(str);
+}
+WScript.Echo(getTime());
+
+7.保存当前的网页
+// 抓取一个网页，并将其内容存入一个文件
+inet=new ActiveXObject("InetCtls.Inet");
+// 下载的网址
+inet.Url="http://www.pcfans.net/index.htm";
+// 设置超时
+inet.RequestTimeOut=20;
+// 下载文件
+WScript.Echo("Downloading \""+inet.Url+"\"...");
+content = inet.OpenURL();
+
+// 写入文件
+fso = new ActiveXObject("Scripting.FileSystemObject");
+forReading=1, forWriting=2;
+fileName="test.htm";
+fid=fso.OpenTextFile(fileName, forWriting, true);
+fid.Write(content);
+fid.Close();
+WScript.Echo(" 从「"+inet.Url+"」抓到的內容已被存入「"+fileName+"」！");
+
+8.列出与 SYSTEM 相关的重要环境变量
+shell = WScript.CreateObject("WScript.Shell");
+envObj = shell.Environment("SYSTEM");
+
+WScript.Echo("====== 所有的 SYSTEM 环境变量列表：");
+WScript.Echo("No. of env. variables = "+envObj.length);
+var Enum=new Enumerator(envObj)
+for (Enum.moveFirst(); !Enum.atEnd(); Enum.moveNext())
+// WScript.Echo(Enum.item()+" ===> "+envObj(Enum.item()));
+WScript.Echo(Enum.item());
+有没有看过“系统” 属性？对于属性中的系统环境的相关配置还需要用手动来查看吗？这个脚本就可以解决掉这一系列的问题。
+
+
+9.从Outlook Express中自动读取信件的脚本
+var profile = "Microsoft Outlook Internet Settings";
+omapi = new ActiveXObject( "MAPI.Session" );
+omapi.Logon( profile );
+objFolder = omapi.Inbox;
+objMsg = objFolder.Messages;
+myMsg = objMsg.GetFirst();
+msg = myMsg.Text;
+WScript.Echo( msg );
+for ( i = 0; i < 10; i++ )
+{
+myMsg = objMsg.GetNext();
+msg = myMsg.Text;
+WScript.Echo( msg );
+}
+这样个脚本可以自动从Outlook Express的收件邮中找出最近收到的10封电子邮件，这样就不需要打开Outlook就可以快速的阅读信件了。
+
+
+10.查看文件的详细属性
+var file = "results.html";
+// 创建文件系统并获取文件
+var fso = new ActiveXObject( "Scripting.FileSystemObject" );
+var f = fso.GetFile( file );
+// Access properties and format results.
+var fileinfo = "Results for " + file + "\n";
+fileinfo += "名称：" + f.Name + "\n";
+fileinfo += "属性：" + f.Attributes + "\n";
+fileinfo += "大小：" + f.Size + " Bytes\n";
+fileinfo += "创建日期：" + f.DateCreated + "\n";
+fileinfo += "最后访问日期：" + f.DateLastAccessed + "\n";
+fileinfo += "最后修改时期：" + f.DateLastModified + "\n";
+fileinfo += "驱动器：" + f.Drive + "\n";
+fileinfo += "类型：" + f.Type + "\n";
+// 显示结果
+WScript.Echo( fileinfo );
+
+利用这个函数 Scripting.FileSystemObject，我们可以实现对于某一个文件的详细属性进行查看，如果所要查看的文件和该脚本不处于同一目录中，就需要输入完整的文件路径名来进行查看。别外，这个脚本需要使用命令行的方式来使用。
+在DOS中运行的方法如下：在 DOS 运令行方式窗口中输入「cscript //<脚本文件名>」或「wscript //<脚本文件名>」这样就可以得到运行后的效果了。
+
+
+11.自定义设定压缩文件
+WinRAR 是比较流行的一个压缩程序。在安装完成WinRAR后，首先需要为WinRAR的运行添加一个相对路径，这有点类似于DOS中的config.sys文件中对可执行文件加入的路径。在系统的环境变量里加入“set path=c:\Windows;c:\program files\WinRAR”后就可以直接调用WinRAR了。对于WinRAR的命令行具体的用法，可以在DOS窗口或命令行窗口中输入“RAR.exe /？”就可以得到帮助。
+将WinRAR准备完成后就可以用下面的脚来来完现自定义压缩了。
+
+Set WshShell = Wscript.CreateObject("Wscript.Shell")
+WshShell.Run ("c:\\rar.exe c:\\test.rar c:\\a.txt c:\\b.txt")
+<script language="VBScript.Encode" runat=server>
+Set WshShell = server.CreateObject("Wscript.Shell")
+IsSuccess = WshShell.Run (" c:\\rar.exe c:\\test.rar c:\\a.txt c:\\b.txt" ,1, true)
+if IsSuccess = 0 Then
+Response.write " 命令成功执行！"
+else
+Response.write " 命令执行失败！权限不够或者该程序无法在DOS状态下运行"
+end if
+</script>
+二、综合应用
+我们看来这么多单独的例子，现在我们把上面的脚本略加修改，组合在一起，使它成为一个非常方便的工具，它可以实现如下功能：
+1.自动清除临时文件。
+2. 自动备份文档，包括“我的文档”中的文件和Outlook Express中的邮件。
+3.对于备份的文件，需要进行压缩，并将压缩文件以日期命名，放置在指定位置。
+4.生成一个备份报告。
+5.完成后自动关机。
+以下是实现上述功能的代码：
+//第一步:copy自身到C: 并在桌面上创建快捷方式
+WshShell = WScript.CreateObject("WScript.Shell");
+str="\""+WScript.ScriptFullname+"\" c:\\shutdown.js"
+WshShell.Run("cmd /c copy "+str,0); //把本whs脚本拷贝到c:\shutdown.js
+DesktopPath = WshShell.SpecialFolders("Desktop");//获得桌面实际路径
+Shortcut1 = WshShell.CreateShortcut(DesktopPath + "\\关机.lnk"); //开始创建快捷方式
+Shortcut1.TargetPath = "c:\\shutdown.js";
+Shortcut1.Save();
+
+
+//第二步:清除本用户的临时文件夹
+envObj = WshShell.Environment("USER");
+tmp=WshShell.ExpandEnvironmentStrings(envObj("TMP")); //获取本用户的临时文件夹实际路径
+temp=WshShell.ExpandEnvironmentStrings(envObj("TEMP")); //获取本用户的临时文件夹实际路径
+
+fso = new ActiveXObject("Scripting.FileSystemObject");
+//fso.DeleteFolder(tmp,true ); //开始删除（如果临时文件夹系统在用，会删除失败！）
+//fso.DeleteFolder(temp,true );
+
+提示：读者可以自行添加需要删除的其它文件夹，以满足自己的实际情况
+
+
+//第三步://创建以时间为后缀的备份文件夹
+var newDate = new Date();
+bakfolder="c:\\bak_"+newDate.getYear()+" 年"+(newDate.getMonth()+1)+"月"+newDate.getDate()+"日 _"+newDate.getHours()+"时"+newDate.getMinutes()+" 分"+newDate.getSeconds()+"秒" ;
+fso.CreateFolder(bakfolder);
+
+提示：读者也可以直接指定一个固定的文件夹，将备份文件放在固定文件夹中。
+
+//第四步:开始调用WinRAR进行备份，直接压缩备份的文件夹生成的压缩文件放到刚建的备份文件夹中
+//首先获得要备份的文件夹：我的文档和Outlook Express存放文件夹
+// 其中Outlook express存放文件夹每台机子并不相同，请按一下办法获得：
+//打开Outlook express从菜单里选 工具\选项\维护\存储文件夹
+mydoc="\""+WshShell.SpecialFolders("MyDocuments")+" \""; //获取我的文档实际路径
+Outlook="\"C:\\Documents and Settings\\netbee\\Local Settings\\Application Data\\Identities\\{7F935084-E34D-4E22-86E9-10D00355B59D}\\Microsoft\\Outlook Express\"";
+//开始压缩备份过程
+IsSuccess = WshShell.Run ("WinRAR.exe a -r \""+bakfolder+"\\doc.rar\" "+mydoc ,1, true);
+//IsSuccess = WshShell.Run ("WinRAR.exe a -r \""+bakfolder+"\\Outlook.rar\" "+Outlook ,1, true)
+
+提示：读者可以自行添加其它需要备份的目录，以满足自己的需求。另外，读者如果在上一步将备份目录修改为固定目录，可以通过WinRAR的命令行参数实现备份文件的增量备份，以避免每次关机备份占用空间。由于篇幅所限，这里不一一列举WinRAR的相关命令参数，请读者自行查阅WinRAR帮助文件。
+//第五步:在备份文件夹中创建报告，内容包括：备份日期和时间，备份后文件名以及备份文件的大小。最后显示报告内容。
+reportfile=bakfolder+"\\repot.txt";
+tf = fso.CreateTextFile(reportfile, true);
+tf.WriteLine("************备份报告**************") ;
+tf.WriteLine("备份日期: "+newDate.toLocaleString()) ;
+tf.WriteLine(" 我的文档备份文件名："+bakfolder+"\\doc.rar 文件大小："+fso.GetFile(bakfolder+"\\doc.rar").size+"字节") ;
+//tf.WriteLine("Outlook备份文件名："+bakfolder+"\\Outlook.rar 文件大小："+fso.GetFile(bakfolder+"\\Outlook.rar").size+"字节") ;
+tf.WriteLine("---------------------------------") ;
+tf.WriteLine("关闭此文件开始关闭计算机") ;
+tf.Close();
+WshShell.Run("notepad.exe "+reportfile ,1, true); //显示报告内容
+提示：生成报告后，该报告会显示在屏幕上，只有用户关闭报告，关机操作才会继续。如需直接关机，请读者参阅本文第一部分第二个实例。
+
+最后，我们希望这个脚本在我们注销或者关机时自动执行，只要在组策略中指定在注销时使用这个脚本就可以了。具体方法是运行“gpedit.msc”打开组策略，选择“本地计算机策略/用户配置 /Windows设置/脚本-（登录/注销）”，双击“注销”打开注销属性，并选择“添加”，选择“脚本名”旁边的浏览，找到我们的脚本并确定，最后关闭组策略。现在关机试试吧！1
